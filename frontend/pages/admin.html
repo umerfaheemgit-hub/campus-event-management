@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin - Manage Events</title>
+  <link rel="stylesheet" href="/src/css/style.css">
+</head>
+<body>
+  <div id="navbar"></div>
+
+  <main class="container">
+    <h1>Manage Events</h1>
+    <p id="message" class="message"></p>
+
+    <div class="card-box">
+      <h2 id="form-title">Create Event</h2>
+      <form id="event-form">
+        <label for="title">Title</label>
+        <input type="text" id="title" required>
+        <label for="description">Description</label>
+        <textarea id="description" rows="3"></textarea>
+        <label for="date">Date</label>
+        <input type="date" id="date" required>
+        <label for="time">Time</label>
+        <input type="time" id="time" required>
+        <label for="location">Location</label>
+        <input type="text" id="location" required>
+        <label for="category">Category</label>
+        <select id="category" required>
+          <option>Seminar</option>
+          <option>Workshop</option>
+          <option>Sports</option>
+          <option>Competition</option>
+          <option>Conference</option>
+          <option>Society</option>
+        </select>
+        <label for="capacity">Capacity</label>
+        <input type="number" id="capacity" min="1" required>
+        <button type="submit" class="btn" id="save-btn">Create Event</button>
+        <button type="button" class="btn btn-outline hidden" id="cancel-btn" style="color:#2563eb">Cancel Edit</button>
+      </form>
+    </div>
+
+    <h2>All Events</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Title</th><th>Date</th><th>Category</th><th>Registered</th><th>Actions</th></tr>
+        </thead>
+        <tbody id="events-table"></tbody>
+      </table>
+    </div>
+  </main>
+
+  <div id="footer"></div>
+
+  <script src="/src/js/api.js"></script>
+  <script src="/components/navbar.js"></script>
+  <script src="/components/footer.js"></script>
+  <script src="/src/js/admin.js"></script>
+</body>
+</html>
