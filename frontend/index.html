@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campus Event Management System</title>
+  <link rel="stylesheet" href="/src/css/style.css">
+</head>
+<body>
+  <div id="navbar"></div>
+
+  <section class="hero">
+    <div class="container">
+      <h1>The University Of Lahore</h1>
+      <p>Seminars, workshops, sports and competitions happening on campus.</p>
+      <a href="/pages/events.html" class="btn btn-large">Browse All Events</a>
+    </div>
+  </section>
+
+  <main class="container">
+    <h2>Featured Events</h2>
+    <div id="featured" class="event-grid"><p>Loading events...</p></div>
+  </main>
+
+  <div id="footer"></div>
+
+  <script src="/src/js/api.js"></script>
+  <script src="/components/navbar.js"></script>
+  <script src="/components/footer.js"></script>
+  <script src="/components/eventCard.js"></script>
+  <script src="/src/js/home.js"></script>
+</body>
+</html>
