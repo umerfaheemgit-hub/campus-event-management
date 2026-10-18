@@ -7,10 +7,10 @@ for campus events, and an admin can create, update and delete events.
 
 | Name | SAP ID | Role |
 |------|--------|------|
-| Ali  | 1 | Team Lead + Database/Testing |
-| Umar | 2 | Frontend Developer 1 |
-| Amir | 3 | Frontend Developer 2 |
-| Anas | 4 | Backend Developer |
+| Umar Faheem | 70176534 | Team Lead, Database and Testing |
+| Muhammad Amir Ijaz | 70176907 | Frontend Developer (Functionality) |
+| Rana Haroon | 70137442 | Frontend Developer (UI) |
+| Omer Javed | 70176744 | Backend Developer |
 
 ## Technologies
 
