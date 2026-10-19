@@ -96,5 +96,18 @@ function updateEvent(req, res) {
   const updated = db.prepare(EVENT_QUERY + ' WHERE e.id = ?').get(req.params.id);
   res.json(updated);
 }
+// DELETE /api/events/:id (admin only)
+function deleteEvent(req, res) {
+  const existing = db.prepare('SELECT id FROM events WHERE id = ?').get(req.params.id);
+  if (!existing) {
+    return res.status(404).json({ error: 'Event not found' });
+  }
 
-module.exports = { getAllEvents, getEventById, createEvent, updateEvent, CATEGORIES };
+  // Remove the registrations for this event first, then the event
+  db.prepare('DELETE FROM registrations WHERE event_id = ?').run(req.params.id);
+  db.prepare('DELETE FROM events WHERE id = ?').run(req.params.id);
+
+  res.json({ message: 'Event deleted successfully' });
+}
+
+module.exports = { getAllEvents, getEventById, createEvent, updateEvent, deleteEvent, CATEGORIES };
