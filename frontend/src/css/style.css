@@ -79,3 +79,13 @@ th, td { padding: 8px; text-align: left; border-bottom: 1px solid #e2e8f0; }
 .event-card:hover { transform: translateY(-4px); box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2); }
 .btn { transition: opacity 0.2s; }
 .btn:hover { opacity: 0.85; }
+
+/* ===== Responsive layout for phones ===== */
+@media (max-width: 700px) {
+  .nav-inner { flex-direction: column; text-align: center; }
+  .nav-links a { display: inline-block; margin: 4px 8px; }
+  .hero { padding: 40px 0; }
+  .hero h1 { font-size: 28px; }
+  .container { padding: 12px; }
+  .event-grid { grid-template-columns: 1fr; }
+}
