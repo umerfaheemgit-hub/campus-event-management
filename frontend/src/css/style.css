@@ -71,3 +71,30 @@ th, td { padding: 8px; text-align: left; border-bottom: 1px solid #e2e8f0; }
 
 /* Footer */
 #footer { background: var(--dark); color: white; text-align: center; margin-top: 40px; }
+
+/* ===== Improved styling ===== */
+.hero { background: linear-gradient(135deg, #1d4ed8, #7c3aed); padding: 70px 0; }
+.hero h1 { font-size: 40px; margin-bottom: 10px; }
+.event-card { transition: transform 0.2s, box-shadow 0.2s; }
+.event-card:hover { transform: translateY(-4px); box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2); }
+.btn { transition: opacity 0.2s; }
+.btn:hover { opacity: 0.85; }
+
+/* ===== Responsive layout for phones ===== */
+@media (max-width: 700px) {
+  .nav-inner { flex-direction: column; text-align: center; }
+  .nav-links a { display: inline-block; margin: 4px 8px; }
+  .hero { padding: 40px 0; }
+  .hero h1 { font-size: 28px; }
+  .container { padding: 12px; }
+  .event-grid { grid-template-columns: 1fr; }
+}
+
+/* ===== Footer ===== */
+.footer-inner { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 20px; text-align: left; }
+.footer-inner a { color: #93c5fd; }
+.copyright { width: 100%; text-align: center; font-size: 13px; margin: 0; }
+
+/* ===== Category shortcuts ===== */
+.category-row { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px; }
+.category-btn { color: var(--primary); }
