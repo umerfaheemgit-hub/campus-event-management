@@ -39,6 +39,22 @@ loginForm.addEventListener('submit', async (event) => {
 
 signupForm.addEventListener('submit', async (event) => {
   event.preventDefault();
+    const nameValue = document.getElementById('signup-name').value.trim();
+  const emailValue = document.getElementById('signup-email').value.trim();
+  const passwordValue = document.getElementById('signup-password').value;
+
+  if (nameValue.length < 3) {
+    showMessage('Name must be at least 3 characters', true);
+    return;
+  }
+  if (!/^\S+@\S+\.\S+$/.test(emailValue)) {
+    showMessage('Please enter a valid email address', true);
+    return;
+  }
+  if (passwordValue.length < 6) {
+    showMessage('Password must be at least 6 characters', true);
+    return;
+  }
   try {
     await apiRequest('/signup', 'POST', {
       name: document.getElementById('signup-name').value.trim(),

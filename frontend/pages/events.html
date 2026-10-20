@@ -12,7 +12,20 @@
   <main class="container">
     <h1>All Events</h1>
 
-    <!-- Search and filter controls will be added here -->
+      <div style="display:flex; gap:10px; flex-wrap:wrap; margin-bottom:20px;">
+      <input type="text" id="search-box" placeholder="Search events, e.g. AI Workshop" style="flex:2; min-width:200px;">
+      <select id="category-filter" style="flex:1; min-width:150px;">
+        <option value="">All Categories</option>
+        <option>Seminar</option>
+        <option>Workshop</option>
+        <option>Sports</option>
+        <option>Competition</option>
+        <option>Conference</option>
+        <option>Society</option>
+      </select>
+      <button id="search-btn" class="btn">Search</button>
+      <button id="clear-btn" class="btn btn-outline" style="color:#2563eb;">Clear</button>
+    </div>
 
     <div id="event-list" class="event-grid"></div>
   </main>
