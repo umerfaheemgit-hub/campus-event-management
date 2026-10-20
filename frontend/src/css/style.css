@@ -228,3 +228,38 @@ tbody tr:last-child td { border-bottom: none; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
   .hero-inner > * { opacity: 1; }
 }
+
+
+/* ===== Scroll reveal and stats ===== */
+.reveal { opacity: 0; }
+.reveal.visible { opacity: 1; animation: revealUp 0.7s ease backwards; }
+@keyframes revealUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: none; }
+}
+
+.stats {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px;
+  position: relative; z-index: 3; margin-top: -70px; padding-top: 0;
+}
+.stat {
+  text-align: center; padding: 26px 12px;
+  background: rgba(13, 17, 48, 0.75); border: 1px solid var(--border);
+  border-radius: var(--radius); backdrop-filter: blur(12px);
+}
+.stat-num {
+  display: block; font-family: var(--font-head); font-weight: 700;
+  font-size: clamp(30px, 5vw, 48px); line-height: 1.1;
+  background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.stat-label { color: var(--muted); font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; }
+
+@media (max-width: 700px) {
+  .stats { margin-top: -50px; gap: 10px; }
+  .stat { padding: 16px 6px; }
+  .stat-label { font-size: 11px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; }
+}
