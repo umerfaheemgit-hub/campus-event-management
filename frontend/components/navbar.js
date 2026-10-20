@@ -32,3 +32,9 @@ function renderNavbar() {
 }
 
 renderNavbar();
+
+
+// Load the visual effects (scroll animations, animated counters) on every page
+const effectsScript = document.createElement('script');
+effectsScript.src = '/src/js/effects.js';
+document.body.appendChild(effectsScript);
