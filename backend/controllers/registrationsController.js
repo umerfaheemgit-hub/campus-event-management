@@ -31,5 +31,24 @@ function registerForEvent(req, res) {
 
   res.status(201).json({ message: 'Registered successfully for ' + event.title });
 }
+// GET /api/registrations
+// Admin sees all registrations. A student sees only their own.
+function getRegistrations(req, res) {
+  let sql = `
+    SELECT r.id, r.registration_date, u.name AS student_name, u.email,
+           e.id AS event_id, e.title, e.date, e.time, e.location
+    FROM registrations r
+    JOIN users u ON u.id = r.user_id
+    JOIN events e ON e.id = r.event_id`;
+  const params = [];
 
-module.exports = { registerForEvent };
+  if (req.user.role !== 'admin') {
+    sql += ' WHERE r.user_id = ?';
+    params.push(req.user.id);
+  }
+  sql += ' ORDER BY r.registration_date DESC';
+
+  res.json(db.prepare(sql).all(...params));
+}
+
+module.exports = { registerForEvent, getRegistrations };
