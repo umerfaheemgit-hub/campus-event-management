@@ -71,3 +71,11 @@ th, td { padding: 8px; text-align: left; border-bottom: 1px solid #e2e8f0; }
 
 /* Footer */
 #footer { background: var(--dark); color: white; text-align: center; margin-top: 40px; }
+
+/* ===== Improved styling ===== */
+.hero { background: linear-gradient(135deg, #1d4ed8, #7c3aed); padding: 70px 0; }
+.hero h1 { font-size: 40px; margin-bottom: 10px; }
+.event-card { transition: transform 0.2s, box-shadow 0.2s; }
+.event-card:hover { transform: translateY(-4px); box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2); }
+.btn { transition: opacity 0.2s; }
+.btn:hover { opacity: 0.85; }
