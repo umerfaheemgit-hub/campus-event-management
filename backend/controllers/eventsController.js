@@ -63,5 +63,51 @@ function createEvent(req, res) {
   const created = db.prepare(EVENT_QUERY + ' WHERE e.id = ?').get(result.lastInsertRowid);
   res.status(201).json(created);
 }
+// PUT /api/events/:id (admin only)
+function updateEvent(req, res) {
+  const existing = db.prepare(EVENT_QUERY + ' WHERE e.id = ?').get(req.params.id);
+  if (!existing) {
+    return res.status(404).json({ error: 'Event not found' });
+  }
 
-module.exports = { getAllEvents, getEventById, createEvent, CATEGORIES };
+  const { title, description, date, time, location, category, capacity } = req.body;
+
+  if (!title || !date || !time || !location || !category || !capacity) {
+    return res.status(400).json({
+      error: 'title, date, time, location, category and capacity are required'
+    });
+  }
+  if (!CATEGORIES.includes(category)) {
+    return res.status(400).json({ error: 'Category must be one of: ' + CATEGORIES.join(', ') });
+  }
+  if (!Number.isInteger(Number(capacity)) || Number(capacity) <= 0) {
+    return res.status(400).json({ error: 'Capacity must be a positive whole number' });
+  }
+  if (Number(capacity) < existing.registered) {
+    return res.status(400).json({ error: 'Capacity cannot be less than students already registered' });
+  }
+
+  db.prepare(
+    `UPDATE events
+     SET title = ?, description = ?, date = ?, time = ?, location = ?, category = ?, capacity = ?
+     WHERE id = ?`
+  ).run(title, description || '', date, time, location, category, Number(capacity), req.params.id);
+
+  const updated = db.prepare(EVENT_QUERY + ' WHERE e.id = ?').get(req.params.id);
+  res.json(updated);
+}
+// DELETE /api/events/:id (admin only)
+function deleteEvent(req, res) {
+  const existing = db.prepare('SELECT id FROM events WHERE id = ?').get(req.params.id);
+  if (!existing) {
+    return res.status(404).json({ error: 'Event not found' });
+  }
+
+  // Remove the registrations for this event first, then the event
+  db.prepare('DELETE FROM registrations WHERE event_id = ?').run(req.params.id);
+  db.prepare('DELETE FROM events WHERE id = ?').run(req.params.id);
+
+  res.json({ message: 'Event deleted successfully' });
+}
+
+module.exports = { getAllEvents, getEventById, createEvent, updateEvent, deleteEvent, CATEGORIES };
