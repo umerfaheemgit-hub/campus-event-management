@@ -7,6 +7,9 @@ function renderNavbar() {
   if (user && user.role === 'admin') {
     links += `<a href="/pages/admin.html">Admin</a>`;
   }
+    if (user && user.role === 'student') {
+    links += `<a href="/pages/dashboard.html">My Registrations</a>`;
+  }
 
   let auth;
   if (user) {
