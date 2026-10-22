@@ -115,6 +115,7 @@ campus-event-management/
 Protected routes need the header `Authorization: Bearer <token>`.
 
 The API was tested with Postman. See [documentation/api-testing.md](documentation/api-testing.md).
+The full system test report (16 tests) is in [documentation/system-testing.md](documentation/system-testing.md).
 
 ## Screenshots
 
@@ -141,18 +142,19 @@ The API was tested with Postman. See [documentation/api-testing.md](documentatio
 
 The team worked with a feature-branch workflow on GitHub:
 
-- Work was planned as **5 GitHub Issues**, each labelled and assigned to a team member.
+- Work was planned as **6 GitHub Issues**, each labelled and assigned to a team member.
 - Every member worked on **their own branch** (`feature/backend-api`, `feature/frontend-functionality`, `feature/frontend-ui`) with small, meaningful commits under their own name and email.
 - Each branch was merged only through a **Pull Request** that referenced its Issue (`Closes #N`).
 - The Team Lead **reviewed every Pull Request** with inline comments, approved it and merged it into `main`.
-- At the end: **5 of 5 Issues closed** and **all Pull Requests merged**.
+- At the end: **6 of 6 Issues closed** and **all Pull Requests merged**.
 
 | Member | Issue | Branch | Pull Request |
 |--------|-------|--------|--------------|
 | Omer Javed | #3 Develop Event REST API | `feature/backend-api` | #11 |
 | Muhammad Amir Ijaz | #2 Create Event Registration Form | `feature/frontend-functionality` | #12 |
 | Rana Haroon | #1 Create Home Page | `feature/frontend-ui` | #13 |
-| Umar Faheem | #4 Create Database, #5 Integrate Front End and Back End | `feature/database-testing`, `feature/ui-redesign` and others | #6 to #10, #14 |
+| Umar Faheem | #4 Create Database, #5 Integrate Front End and Back End | `feature/database-testing`, `feature/ui-redesign` and others | #6 to #10, #14 to #17, #20 |
+| Anas Subhani | #18 Test the full system and write a test report | `feature/system-testing` | #19 |
 
 ## License
 
