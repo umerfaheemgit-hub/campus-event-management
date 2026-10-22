@@ -24,10 +24,11 @@ A full-stack web application where university students can browse and register f
 
 | Name | SAP ID | Role |
 |------|--------|------|
-| Umar Faheem | 70176534 | Team Lead, Database, Testing, Integration, Code Review |
+| Umar Faheem | 70176534 | Team Lead, Database, Integration, Code Review |
 | Muhammad Amir Ijaz | 70176907 | Front-end Functionality and Registrations API |
 | Omer Javed | 70176744 | Back-end APIs, Documentation, API Testing |
 | Rana Haroon | 70137442 | Front-end UI Design |
+| Anas Subhani | 70176507 | System Testing and Quality Assurance |
 
 ## Technologies
 
